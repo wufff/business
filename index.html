@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    
+    <title></title>
+    <style type="text/css">
+      #welcome {
+         width: 100%;
+         height: 100%;
+         position:fixed;
+         top:0px;
+         left:0px;
+         background-color: #fff;
+         z-index:9999999;
+         padding-top: 50%;
+      }
+
+      #welcome  img { width: 65%; margin: 0 auto;display: block;}
+    
+    </style>
+  </head>
+  <body>
+    <div id="welcome">
+       <img src="http://www.wayperfect.com/content/layouts/img/logo.png">
+    </div>
+    <div id="app-box"></div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript">
+     var url = window.location.href;
+     var prames = url.indexOf("?");   
+     var welcome = document.getElementById("welcome");
+     console.log(prames);
+     if(prames == -1){
+            setTimeout(function () {
+               welcome.style.display = 'none';
+            }, 1500)
+         }else {
+             welcome.style.display = 'none';
+         }
+    </script>
+  </body>
+</html>
