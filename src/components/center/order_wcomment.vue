@@ -87,7 +87,7 @@ import { Spinner } from 'vux';
           this.$router.push({path:"/shophome",query:{storeId:id}});
        },
        loadMore(){
-         console.log(this.scroll);
+        
           if(this.scroll == false){
            return;
         }
@@ -96,7 +96,7 @@ import { Spinner } from 'vux';
          api.ajax('',
         "Order/orderList",{"orderState":140,"pageIndex":this.page,"pageSize":4}
           ).then(res=>{
-        console.log(res);
+       
         var data = res.data.result.cartList;
         this.liData.push(...data);
         this.page++;

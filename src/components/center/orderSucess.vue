@@ -91,6 +91,7 @@ import api from '@/api';
         api.ajaxLaoding('',
        "Order/receiveOrder",{"orderId":this.$route.query.orderId}
           ).then(res=>{
+            console.log(res);
              if(res.data.result){
               this.$vux.toast.show({
               type:"text",

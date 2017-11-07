@@ -43,22 +43,50 @@
               <hot :params="hotParams"></hot>
          </div>
       </div>
-     <div class="popus">
-        <shopInfo v-on:recvie="closeThis" :shopData = "shopInfodata"></shopInfo>
-     </div>
+
+      
+            <popup v-model="showPopup" position="right" width="100%">
+              <div class="position-horizontal-demo">
+                <div class="wrap">
+                    <div class="introduce" @click="closeThis">
+                          <h4>店铺名称：</h4>
+                          <p>{{shopData.name}}</p>
+                     </div>
+                    <div class="introduce">
+                          <h4>店铺公告：</h4>
+                          <p>{{shopData.announcement}}</p>
+                     </div>
+                     <div class="introduce">
+                          <h4>店铺介绍：</h4>
+                          <p>{{shopData.desc}}</p>
+                     </div>
+                     <div class="introduce">
+                          <h4>店铺评分：</h4>
+                          <p>描述相符：<span class="price">{{shopData.descriptionPoint}}</span></p>
+                          <p>服务态度：<span class="price">{{shopData.servicePoint}}</span></p>
+                          <p>发货速度：<span class="price">{{shopData.deliveryPoint}}</span></p>
+                     </div>
+                    <!--  <div class="introduce">
+                          <h4>店铺最近成交量：</h4>
+                          <p>15225笔</p>
+                     </div> -->
+                     <div class="close"  @click="closeThis">
+                         <icon type="clear" ></icon>
+                     </div>
+                </div>
+              </div>
+           </popup>
+     
     </div>
 </template>
 
 <script type="ecmascript-6">
-import { Tab, TabItem } from 'vux'
-import list from '@/components/share/listShare';
 import { Swiper } from 'vux';
-import { Divider } from 'vux';
 import api from '@/api';
 import hot from  '@/components/share/hotList';
 import { Icon } from 'vux'
 import { XImg } from 'vux';
-import shopInfo from  '@/components/shop/shopInfo';
+import { TransferDom, Popup } from 'vux';
 const swiperData = [{
   url: '/list',
   img: 'https://static.vux.li/demo/1.jpg',
@@ -82,16 +110,14 @@ export default {
         bannerData:"",
         bannerImg:"",
         msg:"",
-      	listProps :{
-              tabfixClass:true
-          },
         hotParams:{
            action:"Home/hotSales",
            storeId:"",
            title:"热销商品"
         },
-        shopInfodata:{},
-        sc:""
+        shopData:{},
+        sc:"",
+        showPopup:false,
       }
     },
     created:function(){
@@ -102,7 +128,7 @@ export default {
       var data = res.data.result;
        this.sc = "收藏";
        this.bannerData = data;
-       this.shopInfodata = data;
+       this.shopData = data;
        
     }).catch(()=>{
       console.log("失败");
@@ -123,18 +149,12 @@ export default {
       },
 
       showShopInfo(){
-        var d = document.querySelector(".popus");
-        var s = document.querySelector(".shop");
-        s.style.overflowY = "hidden";
-        d.style.left = "0"; 
+        this.showPopup = true;
       },
-
       closeThis(){
-         var d = document.querySelector(".popus");
-        var s = document.querySelector(".shop");
-        s.style.overflowY = "visible";
-        d.style.left = "100%"; 
+        this.showPopup = false;
       },
+     
 
       have(){
         api.ajaxLaoding('',
@@ -184,6 +204,7 @@ export default {
           console.log("失败");
         })
       },
+
       dele(){
         this.msg = "";
       },
@@ -193,15 +214,11 @@ export default {
     },
    
    components: {
-     list,
-     Tab, 
-     TabItem,
      Swiper,
-     Divider,
      hot,
      Icon,
      XImg,
-     shopInfo
+     Popup
   }
   }
 </script>
@@ -212,8 +229,8 @@ export default {
      .shop {
        width: 100%;
        height: 100%;
-       position: relative;
-       overflow-x: hidden;
+     /*  position: relative;
+       overflow-x: hidden;*/
      }
      .popus {
        width: 100%;
@@ -297,19 +314,42 @@ export default {
          height: 100%;
        }
     }
-    .introduce {
+    
+    /*.sellHot {
+       background-color: #fff;
+    }*/
+     .introduce {
+      .title {
+         display: inline-block;
+      }
        background-color: #fff;
        padding: 10/@rem 15/@rem;
+       border-bottom: 1px solid #eee;
        h4 {
          font-weight: normal;
          margin-bottom: 5/@rem ;
        }
        p {
         font-size: 14/@rem ;
+        text-indent: 2em;
+       }
+       span {
+          font-size: 14/@rem ;
        }
     }
-    /*.sellHot {
-       background-color: #fff;
-    }*/
-
+    .wrap {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      position: relative;
+    }
+    .close {
+         height:80/@rem;
+         line-height: 80/@rem;
+         text-align: center;
+         i {
+           font-size: 20/@rem ;
+            color: green;
+         }
+    }
 </style>

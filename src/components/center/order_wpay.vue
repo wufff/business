@@ -98,7 +98,7 @@ import { Spinner } from 'vux';
          api.ajax('',
         "Order/orderList",{"orderState":0,"pageIndex":this.page,"pageSize":4}
           ).then(res=>{
-        console.log(res);
+        
         var data = res.data.result.cartList;
         this.liData.push(...data);
         this.page++;
