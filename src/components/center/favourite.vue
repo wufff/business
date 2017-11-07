@@ -190,11 +190,10 @@ import api from '@/api';
        .name {
          font-size: 13/@rem;
          height: 35/@rem;
-         text-overflow:ellipsis;
          overflow: hidden;
          padding: 0 5/@rem;
          margin-bottom: 5/@rem;
-
+         line-height: 17/@rem;
        }  
        .xzBox {
          position: absolute;

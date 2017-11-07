@@ -76,6 +76,8 @@
            <div class="i3">发货速度：<span class="price">{{goodInfo.sendScore}}</span></div>
         </div>
     </div>
+
+<!-- 底部 -->
     <div class="detailFoot">
                <div class="left iconActive" v-show="goodInfo.hasCollect">
                     <div><span class="icon-星星"></span></div>
@@ -99,37 +101,7 @@
               <div class="right cart accountAtn" @click.prevent="popCart">加入购物车</div>
     </div>
 
-
-
-
-    <!--  <popup v-model="show">
-        <div class="popupWrapdetail" style="height:auto;">
-          <div class="standard">
-            <h5>规格</h5>
-            <div class="checkeBoxdetail">
-                 <checker v-model="selectVule" radio-required default-item-class="secletItem" selected-item-class="secletItemActive">
-                    <checker-item :value="item" v-for="(item, index) in selectData" :key="index">{{item.name}}</checker-item>
-                </checker>  
-           </div>    
-        </div>
-        <div class="numWrap clearfix">
-           <h5 class="left">数量</h5>
-           <p class="right">
-            <group>
-               <x-number :title="storeNmb" v-model="num" :min="1" :max="maxNmb"></x-number>
-            </group>
-          </p>
-        </div>
-        <div class="shoping clearfix">
-              <div class="left icon"><i class="fa fa-heart"></i></x-icon></div>
-              <div class="left icon"><i class="fa fa-shopping-cart"></i>
-                  <div class="incon">{{cartnum}}</div>
-              </div>
-              <div class="left tolprice"><span class="price">¥ <span>{{price(totPic)}}</span></span></div>
-              <div class="right cart" @click.prevent="goBuy">立即购买</div>
-        </div>
-    </div>
-    </popup> -->
+<!--  弹窗 -->
     <popup v-model="show2">
         <div class="popupWrapdetail" style="height:auto;">
           <div class="standard">
@@ -167,9 +139,8 @@
 <script type="ecmascript-6">
 import { Tab, TabItem } from 'vux';
 import { Swiper, SwiperItem} from 'vux';
-import { Checker , CheckerItem , Group, XNumber ,XButton } from 'vux';
+import { Group, XNumber ,XButton } from 'vux';
 import { Popup } from 'vux';
-import { Icon } from 'vux';
 import api from '@/api';
 import axios from 'axios';
 import { Indicator } from 'mint-ui';
@@ -197,20 +168,14 @@ const swiperData = [{
       goodImg:[],
       goodInfo:"",
       commtData:"",
-      show:false,
       show2:false,
        /*选择*/
       num:1,
-      cartnum:20,
-     /* maxShore:99,*/
       selectData: [],
       selectVule: {},
       thisStand:0,
-      radio:false,
       statdisable:true,
-      demo1Required:"",
-      info:"",
-      data6:3.5,
+      /*商店*/
       storeId:""
     }
     },
@@ -384,12 +349,9 @@ function comment(){
     TabItem,
     Swiper,
     SwiperItem,
-    Checker,
-    CheckerItem,
     XNumber,
     Popup,
     Group,
-    Icon
   }
    
   }

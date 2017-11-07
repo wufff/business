@@ -10,10 +10,12 @@
                 <h5 class="left" v-if="item.orderState =='90'">待发货</h5>
                 <h5 class="left" v-if="item.orderState =='110'">待收货</h5>
                 <h5 class="left" v-if="item.orderState =='140'">待评价</h5>
+                 <h5 class="left" v-if="item.orderState =='200'">已取消</h5>
                 <a class="right price" v-if="item.orderState =='30'">买家未付款</a>
                 <a class="right price" v-if="item.orderState =='90'">买家已付款，卖家未发货</a>
                 <a class="right price" v-if="item.orderState =='110'">卖家已经发货</a>
                 <a class="right price" v-if="item.orderState =='140'">交易完成</a>
+                <a class="right price" v-if="item.orderState =='200'">交易关闭</a>
              </div>
              <h5 class="storeName" @click.prevent="goShop(item.storeId)"><span class="icon-商店 store"></span> {{item.storeName}}</h5>
              <ul class="goods_ul">

@@ -63,7 +63,7 @@
 import api from '@/api';
 import { Popup } from 'vux';
 import axios from 'axios';
-import { Checker , CheckerItem , Group, XNumber ,XButton } from 'vux';
+import { Group, XNumber } from 'vux';
     export default {
     name: '',
     data(){
@@ -171,7 +171,7 @@ axios.all([info(),description()])
                     console.log("失败");
              }); 
       },
-
+      /*去店铺*/
        lookShop(){
          this.$router.push({path:"/shophome",query:{storeId:this.storeId}});
       }
@@ -193,7 +193,6 @@ axios.all([info(),description()])
 
      components: {
        Popup,
-       XNumber,
        Group
     }
   }

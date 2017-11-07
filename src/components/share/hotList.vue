@@ -5,23 +5,6 @@
               v-infinite-scroll="loadMore"
               infinite-scroll-disabled="loading"
                infinite-scroll-distance="10">
-              <!--  <div class="itemWrap" v-for="item in hotData">
-                  <router-link :to ="{ path: '/detail',query:{ id: item.id }}">
-                   <div class="goodImgwarp">
-                         <div class="goodImg" :style="{backgroundImage: 'url('+item.pic+')'}">
-                            
-                         </div>
-                    </div>
-                    <p class="name">
-                      {{item.title}}
-                   </p>
-                   <div class="priceWarp clearfix">
-                      <span class="price">¥ {{item.price}}</span>
-                      <span class="sales">已售：{{item.salesCount}}</span>
-                   </div>
-                </router-link>
-               </div> -->
-             
                 <div class="clearfix">
                       <div class="itemWrap" v-for="(item,index) in hotData">
                          <div style="position:relative;">
@@ -45,16 +28,6 @@
                         </div>
                     </div>           
                 </div>
-               
-
-
-
-
-
-
-
-
-
            </div>
            <div class="spinnerWap" v-show="!isBottom" v-if="hotData">
                     <spinner type="spiral" size="20px"></spinner><span class="jz">努力加载中...</span>
@@ -105,10 +78,9 @@ import { Spinner } from 'vux';
 	          };
 	       console.log("进入更多");
 	       this.loading = true; 
-           api.ajax('',
+           api.ajaxN('',
 			      this.params.action,{"pageIndex":this.page,"pageSize":6,"storeId":this.params.storeId}
 			    ).then(res=>{
-			    	console.log(res);
 			     var data = res.data.result.data;
 			       this.page ++;
 			       this.hotData.push(...data);

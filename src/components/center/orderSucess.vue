@@ -97,11 +97,8 @@ import api from '@/api';
               text:'确认成功', 
               time:500
               })
-              if(this.type == "pay"){
-               this.$router.replace({path:"/order",query:{page:this.$route.query.page}});
-              }else {
-                this.$router.replace({path:"/order",query:{page:this.$route.query.page+1}});
-              }
+              this.$router.replace({path:"/order",query:{page:4}});
+              
           }else{
              this.$vux.toast.show({
               type:"text",

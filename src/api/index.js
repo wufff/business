@@ -6,10 +6,13 @@ var instance = axios.create({
   timeout: 5000,
   headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 });
+var storage = window.localStorage;
+/*storage.setItem("token","27817DC9-E279-4711-949E-6787F4C305E7")*/
 
-/*getParam验证是否登录和加密*/
+
+
+/*加密带token的参数*/
 function getParam(url,paramsObj){
-  var storage = window.localStorage;
   var value = storage.getItem("token");
    if(!value){
       alert("未登录！");
@@ -105,9 +108,28 @@ function fetchLoading(url, atcion,params) {
     })
  } 
 
+ function fetchN(url, atcion,params) {
+       var paramsobj = getParamN(atcion,params);
+      return new Promise((resolve, reject) => {
+          instance.post(url, paramsobj)
+             .then(res => {
+               Indicator.close();
+               resolve(res);
+  })
+ .catch((error) => {
+        alert("请求超时请切换页面重试");
+        reject(error);
+       })
+    })
+ } 
+
+
   export default {
       ajax(url,atcion,params) {
           return fetch(url,atcion,params);
+      },
+       ajaxN(url,atcion,params) {
+          return fetchN(url,atcion,params);
       },
       ajaxLaoding(url,atcion,params) {
           return fetchLoading(url,atcion,params);

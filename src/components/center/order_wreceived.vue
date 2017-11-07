@@ -120,6 +120,11 @@ import { Spinner } from 'vux';
        looklogistics(ordersn){
          this.$router.push({path:"/logistics",query:{orderId:ordersn}});
        },
+
+       receive(id){
+         this.$router.replace({path:"/orderSucess",query:{orderId:id,page:3,type:"receive"}});
+          
+      }
        
     },
     components: {
