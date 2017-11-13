@@ -19,7 +19,9 @@
                    <li v-for="(item,index) in liData">
                      <router-link :to="{path:'/detail',query:{id:item.id}}" class="clearfix">
                         <div class="left imgWrap">
-                             <div class="imgbox" :style="{backgroundImage: 'url('+item.imgUrl+')'}"></div>
+                             <div class="imgbox">
+                                 <img v-lazy="item.imgUrl">
+                             </div>
                         </div>
                         <div class="right infoWrap">
                            <h5>{{item.name}}</h5>
@@ -592,12 +594,15 @@ function initP(p){
              background-position: center;
              background-size: contain;
              background-color: #eee;
+             img {
+               width: 100%;
+               height: 100%;
+             }
           }
          }
          .right {
            width: 237/@rem;
            height: 100%;
-           
            padding: 12/@rem;
            padding-left: 0/@rem;
            h5{

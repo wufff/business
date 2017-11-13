@@ -11,25 +11,24 @@
       </div>
       <div class="index_content" >
           <div class="banner">
-              <swiper :list="bannerData" loop auto :interval=2000 :aspect-ratio="340/790"  ></swiper>
-             <!--  <swiper  loop auto :interval=2000 height="banheight">
+              <!-- <swiper :list="bannerData" loop auto :interval=2000 :aspect-ratio="340/790"  ></swiper> -->
+              <swiper  loop auto :interval=3000 height="6.88230277rem">
                   <swiper-item v-for="(item,index) in bannerData" :key="index" >
-                      <img :src="item.image">
+                      <img :src="item.img">
                   </swiper-item>
-              </swiper> -->
+              </swiper>
          </div>
          <div class="classfiy clearfix" id="index_classfiy">
              <router-link :to="{path:'/list',query:{cate:item.id}}" v-for="(item,index) in classData" :key="index" v-if="index < 8">
-                <x-img :src="item.image" error-class="ximg-error" ></x-img>
+                 <img v-lazy="item.image">
                 <p>{{item.name}}</p>
              </router-link>
          </div>
          <div class="goods_active clearfix" v-show="activeData.length > 0">
             <h5>热门活动</h5>
             <div v-for="item in activeData">
-               <a href="" >
-                 
-                 <x-img :src="item.image" error-class="ximg-error" ></x-img>
+               <a href="#">
+                 <img v-lazy="item.image">
                </a>
             </div>
             
@@ -44,10 +43,9 @@
 
 <script type="ecmascript-6">
 import foot from '@/components/share/foot';
-import { Swiper } from 'vux';
+import { Swiper, SwiperItem } from 'vux';
 import api from '@/api';
 import hot from  '@/components/share/hotList';
-import { XImg } from 'vux';
 import { Indicator } from 'mint-ui';
 
     export default {
@@ -119,12 +117,12 @@ import { Indicator } from 'mint-ui';
       foot,
       Swiper,
       hot,
-      XImg
+      SwiperItem
   }
 
   }
 </script>
-<style lang="less"scoped>
+<style lang="less" scoped>
 @rem: 23.45rem;
    #header {
        position: fixed;
@@ -180,13 +178,14 @@ import { Indicator } from 'mint-ui';
       } 
      
     }
-  .banner {
-    background-color: #fff;
-  }
+ 
   .index_content {
     padding-top: 40/@rem;
     padding-bottom: 58/@rem;
 
+  }
+   .banner {
+    background-color: #fff;
   }
   .classfiy {
      margin-bottom: 8/@rem;

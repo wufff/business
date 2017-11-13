@@ -1,6 +1,6 @@
 <template>
      <div class="goods_hot">
-            <divider v-show="hotData">{{params.title}}</divider>
+          <divider v-show="hotData">{{params.title}}</divider>
            <div class="forat" 
               v-infinite-scroll="loadMore"
               infinite-scroll-disabled="loading"
@@ -10,12 +10,9 @@
                          <div style="position:relative;">
                            <router-link :to ="{ path: '/detail',query:{ id: item.id }}">
                              <div class="goodImgwarp">
-                                   <div class="goodImg" :style="{backgroundImage: 'url('+item.pic+')'}" v-show="item.pic">
+                                   <div class="goodImg">
+                                       <img v-lazy="item.pic">
                                   </div>
-                                   <div class="goodImg noImg" v-show="!item.pic">
-                                        唯品</br>
-                                        科技
-                                   </div>
                               </div>
                               <p class="name">
                                 {{item.title}}
@@ -104,50 +101,7 @@ import { Spinner } from 'vux';
 
 <style lang="less" scoped>
 @rem: 23.45rem;
-     /*.goods_hot {
-       background-color: #fff;
-       padding: 8/@rem 0;
-       .wrap {
-          padding: 0 8/@rem;
-       }
-       .itemWrap {
-         width: 50%;
-         float: left;
-         padding: 8/@rem;
-         .goodImgwarp {
-          padding: 5/@rem ;
-          border: 1px solid #d0d0d0;
-          margin-bottom:5/@rem;
-           .goodImg {
-            height: 160/@rem;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-         }
-
-         }
-       .name {
-         font-size: 13/@rem;
-         height: 35/@rem;
-         text-overflow:ellipsis;
-         overflow: hidden;
-         margin-bottom: 5/@rem;
-       }  
-       }
-      .priceWarp {
-         font-size: 15/@rem;
-         position: relative;
-         .sales {
-           position: absolute;
-          font-size: 12/@rem;
-          right: 0;
-         
-         }
-      }
-    }*/
-
-
-
+.hot_title { background-color: #fff;}
 .forat {
        
        padding: 0 2/@rem 3/@rem 2/@rem;
@@ -188,6 +142,10 @@ import { Spinner } from 'vux';
             /*background-image:url("../../assets/pic.png");*/
             background-color: #eee;
             margin-bottom: 5/@rem;
+            img {
+               width: 100%;
+               height: 100%;
+            }
             
          }
            .goodImg.noImg{

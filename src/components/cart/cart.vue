@@ -30,8 +30,9 @@
                                      <icon type="circle" class="circle" v-show="!item.goodsSeclect"></icon>              
                                 </div>
                               </div>
-                            <div class="left imgWrap" :style="{backgroundImage: 'url('+item.picUrl+')'}">
-                               <router-link :to="{path:'/detail',query:{id:item.productId}}">
+                            <div class="left imgWrap">
+                                <router-link :to="{path:'/detail',query:{id:item.productId}}">
+                                 <img v-lazy="item.picUrl">
                                </router-link>
                             </div>
                             <div class="left info">
@@ -498,6 +499,10 @@ function computTot(array){
       a {
          width: 100%;
          height: 100%;
+         img {
+           width: 100%;
+           height: 100%;
+         }
       }
    }
    .info {

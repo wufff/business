@@ -128,8 +128,4 @@ export default {
 @import '../static/style/Cvux.less';
 @import '../static/style/style-font.css';
 @import '../static/style/skin.less';
-
-body {
-  background-color: #fbf9fe;
-}
 </style>

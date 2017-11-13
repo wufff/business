@@ -5,7 +5,6 @@ import FastClick from 'fastclick'
 import router from './router'
 import App from './App'
 import initFont from '../static/js/initFont.js'
-import api from './api';
 import { InfiniteScroll } from 'mint-ui';
 import  { ToastPlugin } from 'vux'
 import { Field } from 'mint-ui';
@@ -13,6 +12,10 @@ import { Switch } from 'mint-ui';
 import { Loadmore } from 'mint-ui';
 import { Spinner } from 'mint-ui';
 import  { ConfirmPlugin } from 'vux';
+import { Lazyload } from 'mint-ui';
+
+
+Vue.use(Lazyload);
 Vue.use(ConfirmPlugin);
 Vue.component(Spinner.name, Spinner);
 Vue.component(Loadmore.name, Loadmore);

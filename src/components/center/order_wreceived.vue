@@ -40,8 +40,8 @@
           <li v-text="kts" v-if="liData.length < 1" class="wuding"></li>
        </ul>
        <div class="spinnerWap" v-show="!isBottom" v-if="liData.length>0">
-                    <spinner type="spiral" size="20px"></spinner><span class="jz">努力加载中...</span>
-        </div>
+            <spinner type="spiral" size="20px"></spinner><span class="jz">努力加载中...</span>
+      </div>
     </div>
 </template>
 
