@@ -39,9 +39,10 @@ import wx from '@/awx';
     		window.history.go(-1);
     	},
     	test(){
-           var storage = window.localStorage;
+         /*  var storage = window.localStorage;
            storage.setItem("token","");  
-           storage.setItem("redirct","");
+           storage.setItem("redirct","");*/
+         this.$router.push({path:"/test"});
     	}
     }
   }

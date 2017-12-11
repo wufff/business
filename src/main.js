@@ -13,8 +13,8 @@ import { Loadmore } from 'mint-ui';
 import { Spinner } from 'mint-ui';
 import  { ConfirmPlugin } from 'vux';
 import { Lazyload } from 'mint-ui';
-
-
+import VueScroller from 'vue-scroller';
+Vue.use(VueScroller)
 Vue.use(Lazyload);
 Vue.use(ConfirmPlugin);
 Vue.component(Spinner.name, Spinner);
@@ -23,7 +23,6 @@ Vue.component(Switch.name, Switch);
 Vue.component(Field.name, Field);
 Vue.use(ToastPlugin);
 Vue.use(InfiniteScroll);
-
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false

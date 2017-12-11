@@ -6,6 +6,7 @@ import cart from '@/components/cart/cart';
 import checkout from '@/components/cart/checkout';
 import paySucess from '@/components/cart/paySucess';
 import center from '@/components/center/center';
+import test from '@/components/center/test';
 import logistics from '@/components/center/logistics';
 import myEdite from '@/components/center/myEdite';
 import login from '@/components/center/login';
@@ -23,7 +24,6 @@ import order from '@/components/center/order';
 import mySell from '@/components/center/mySell';
 import classfiy from '@/components/classfiy/classfiy';
 import home from '@/components/home'
-import test from '@/test/test';
 import list from  '@/components/good/list';
 import detail from '@/components/detail/detail';
 import comment from '@/components/detail/comment';
@@ -80,6 +80,11 @@ export default new Router({
       path: '/center',
       name: 'center',
       component: center
+     },
+     {
+      path: '/test',
+      name: 'test',
+      component: test
      },
       {
       path: '/cart',

@@ -47,6 +47,7 @@ import { Swiper, SwiperItem } from 'vux';
 import api from '@/api';
 import hot from  '@/components/share/hotList';
 import { Indicator } from 'mint-ui';
+import myWx from '@/awx';
 
     export default {
     name: '',
@@ -89,6 +90,7 @@ import { Indicator } from 'mint-ui';
     }).catch(()=>{
       console.log("失败");
     });
+      myWx.share();
     },
 
     mounted:function(){ 

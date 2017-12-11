@@ -71,20 +71,20 @@
        
     },
 
-    share(url,
-      imgurl="http://www.shootplay.com/mobile/content/static/img/start_logo.png",
+    share(
+      imgurl="http://www.wayperfect.com/content/layouts/img/logo.png",
       fn=suc,
-      descContent="玩摄影\r\n交朋友\r\n享生活"
+      descContent="电商平台\r\n店铺多\r\n买家多"
       )
        {
-         /*console.log("213");*/
+        var shareTitle = '唯品电商';
+        var shareUrl =  window.location.href+'?&';
+        // console.log(shareTitle);
+        // console.log(shareUrl);
+        // console.log(imgurl);
         wx.ready(function(){
-         /*  console.log("分享微信准备好");*/
-           /* var imgurl = 'http://www.shootplay.com/mobile/content/static/img/start_logo.png';*/
-           var shareTitle = '爱生活 爱摄玩';
-           /* var descContent ='玩摄影\r\n斗图片\r\n品趣味'*/
-           var hash =  window.location.hash;
-           var shareUrl = 'http://www.shootplay.com/mobile/home/Authorize?&'+url
+           var shareTitle = '唯品电商';
+           var shareUrl =  window.location.href+'?&';
            console.log(shareUrl);
        wx.onMenuShareAppMessage({
              title:shareTitle, // 分享标题

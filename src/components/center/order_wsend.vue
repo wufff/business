@@ -12,7 +12,9 @@
              <h5 class="storeName"  @click.prevent="goShop(item.storeId)"><span class="icon-商店 store"></span> {{item.storeName}}</h5>
              <ul class="goods_ul">
                <li class="clearfix" v-for="item in item.detail4AppList" @click.prevent="goDetail(item.goodId)">
-                  <div class="imgbox" :style="{backgroundImage: 'url('+item.picUrl+')'}"></div>
+                  <div class="imgbox">
+                     <img v-lazy="item.picUrl">
+                  </div>
                   <div class="info">
                       <h5>{{item.title}}</h5>
                       <p>规格：<span>{{item.specification}}</span><span style="margin-left:10px">快递:<span>{{fomatPostage(item.postage)}}</span></span></p>
