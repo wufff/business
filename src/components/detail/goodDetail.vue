@@ -136,7 +136,7 @@
   </div>
 </template>
 
-<script type="ecmascript-6">
+<script>
 import { Tab, TabItem } from 'vux';
 import { Swiper, SwiperItem} from 'vux';
 import { Group, XNumber ,XButton } from 'vux';

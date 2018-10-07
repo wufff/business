@@ -20,7 +20,7 @@
     </div>
 </template>
 
-<script type="ecmascript-6">
+<script>
 import { Icon } from 'vux'
 import api from '@/api';
     export default {

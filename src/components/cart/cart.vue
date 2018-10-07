@@ -78,7 +78,7 @@
     </div>
 </template>
 
-<script type="ecmascript-6">
+<script>
 import api from '@/api';
 import foot from '@/components/share/foot';
 import { Icon } from 'vux';
